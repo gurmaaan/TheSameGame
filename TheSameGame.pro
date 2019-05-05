@@ -26,15 +26,18 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        dialogs/mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        dialogs/mainwindow.h
 
 FORMS += \
-        mainwindow.ui
+        dialogs/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    sources.qrc
