@@ -26,10 +26,13 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        dialogs/mainwindow.cpp
+        dialogs/mainwindow.cpp \
+        randommatrix.cpp
 
 HEADERS += \
-        dialogs/mainwindow.h
+        dialogs/mainwindow.h \
+        randommatrix.h \
+        static.h
 
 FORMS += \
         dialogs/mainwindow.ui
