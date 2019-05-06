@@ -17,12 +17,25 @@ MainWindow::~MainWindow()
 void MainWindow::on_gen_btn_clicked()
 {
     QList<int> mainList;
-    for (int i = 0; i < 18; i++)
+    int halfVal = MATRIX_H * MATRIX_W / 2;
+    for (int i = 0; i < halfVal; i++)
     {
         mainList << i;
         mainList << i;
     }
-    qDebug() << mainList;
+    std::random_shuffle(mainList.begin(), mainList.end());
+
+    for(int i = 0; i < MATRIX_W; i++)
+    {
+        for(int j = 0; j < MATRIX_H; j++)
+        {
+            QModelIndex index = _model->index(i,j);
+            _model->setData(index, mainList.last(), Qt::DisplayRole);
+            _model->setData(index, Qt::AlignCenter, Qt::TextAlignmentRole);
+            mainList.removeLast();
+        }
+    }
+
 }
 
 void MainWindow::setWidgets()
